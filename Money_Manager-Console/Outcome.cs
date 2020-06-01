@@ -8,5 +8,9 @@ namespace Money_Manager_Console
 {
     class Outcome
     {
+        public int Id;
+        public string Name;
+        public decimal Amount;
+        public DateTime Date;
     }
 }

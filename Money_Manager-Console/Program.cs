@@ -9,7 +9,7 @@ namespace Money_Manager_Console
     class Program
     {
         static void Main(string[] args)
-        {
+        {           
         }
     }
 }
