@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Money_Manager_Console
+namespace Money_Manager_Console.Statistics
 {
-    class File
+    class Summary
     {
     }
 }

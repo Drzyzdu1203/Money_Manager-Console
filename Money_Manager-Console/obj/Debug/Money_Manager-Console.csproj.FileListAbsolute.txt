@@ -1,0 +1,6 @@
+D:\Repozytoria\Money_Manager-Console\Money_Manager-Console\bin\Debug\Money_Manager-Console.exe.config
+D:\Repozytoria\Money_Manager-Console\Money_Manager-Console\bin\Debug\Money_Manager-Console.exe
+D:\Repozytoria\Money_Manager-Console\Money_Manager-Console\bin\Debug\Money_Manager-Console.pdb
+D:\Repozytoria\Money_Manager-Console\Money_Manager-Console\obj\Debug\Money_Manager-Console.csprojAssemblyReference.cache
+D:\Repozytoria\Money_Manager-Console\Money_Manager-Console\obj\Debug\Money_Manager-Console.exe
+D:\Repozytoria\Money_Manager-Console\Money_Manager-Console\obj\Debug\Money_Manager-Console.pdb
