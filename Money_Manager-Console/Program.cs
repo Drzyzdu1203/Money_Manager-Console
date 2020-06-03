@@ -11,66 +11,18 @@ namespace Money_Manager_Console
         static void Main(string[] args)
         {
             string selected;
-            string key;
-            int i = 1;
-            DisplayMenu();
-
-            while (i > 0)
+            do
             {
-                
+                DisplayMenu();
                 selected = Console.ReadLine();
-
-                if (selected == "1")
-                {
-                    Lista();
-                    key = Console.ReadLine();
-                    if (key == "1")
-                    {
-                        DisplayMenu();
-                    }
-                    else
-                    {
-                        Console.Clear();
-                        Console.WriteLine("Ten klawisz nie ma przypisanej żadnej funkcji. \n");
-                        Console.WriteLine("1 - Powrót do menu");
-                        
-                    }
-                    continue;
-                }
-                if (selected == "2")
-
-                {
-                    Raport();
-                    continue;
-                }
-                if (selected == "3")
-                {
-                    Dochod();
-                    continue;
-                }
-                if (selected == "4")
-                {
-                    Wydatek();
-                    continue;
-                }
-                if (selected == "5")
-                {
-                    Usun();
-                    continue;
-                }
-                if (selected == "6")
-                {
-                    Zakoncz();
-                }
-                else
-                {
-                    Console.Clear();
-                    Console.Write("Ten klawisz nie ma przypisanej żadnej funkcji.");
-                }
+                RunSelected(selected);
             }
-            Console.ReadKey();
+            while (selected !="6");
+            
+        
+            
         }
-        static void DisplayMenu()
+        private static void DisplayMenu()
         {
             Console.Clear();
             Console.WriteLine("1 - Lista");
@@ -79,38 +31,58 @@ namespace Money_Manager_Console
             Console.WriteLine("4 - Dodaj wydatek");
             Console.WriteLine("5 - Usuń pozycje");
             Console.WriteLine("6 - Zakończ");
+            Console.WriteLine("\nWybrana opcja:");
         }
-        static void Lista()
-        {
-            
-            Console.Clear();
-            Console.WriteLine("Lista\n");
-            Console.WriteLine("1 - Powrót");
-           
 
+        private static void RunSelected(string selected)
+        {
+            switch(selected)
+
+            {
+                case "1":
+                    ShowList();
+
+                    break;
+
+                case "2":
+                    ShowRaport();
+                    break;
+
+                case "3":
+                    AddIncome();
+                    break;
+
+                case "4":
+                    AddOutcome();
+                    break;
+                    
+                case "5":
+                    RemoveItem();
+                    break;
+            }
         }
-        static void Raport()
+        static void ShowList()
         {
             Console.Clear();
-            Console.WriteLine("Raport miesięczny");
+            
         }
-        static void Dochod()
-        {
-            Console.Clear();
-            Console.WriteLine("Dochody");
-        }
-        static void Wydatek()
-        {
-            Console.Clear();
-            Console.WriteLine("Wydatki");
-        }
-        static void Usun()
+        static void ShowRaport()
         {
             Console.Clear();
         }
-        static void Zakoncz()
+        static void AddIncome()
         {
-            Environment.Exit(0);
+            Console.Clear();
         }
+        static void AddOutcome()
+        {
+            Console.Clear();
+        }
+        static void RemoveItem()
+        {
+            Console.Clear();
+        }
+
+
     }
 }
