@@ -44,6 +44,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataBase\File.cs" />
+    <Compile Include="DataBase\IReader.cs" />
+    <Compile Include="DataBase\IWriter.cs" />
     <Compile Include="Items\Income.cs" />
     <Compile Include="Items\Item.cs" />
     <Compile Include="Statistics\List.cs" />

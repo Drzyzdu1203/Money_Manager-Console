@@ -13,14 +13,13 @@ namespace Money_Manager_Console
             string selected;
             do
             {
-                DisplayMenu();
                 selected = Console.ReadLine();
+                DisplayMenu();
+                
                 RunSelected(selected);
             }
             while (selected !="6");
-            
         
-            
         }
         private static void DisplayMenu()
         {
