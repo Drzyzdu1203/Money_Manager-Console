@@ -9,7 +9,7 @@ namespace Money_Manager_Console.Statistics
 {
     class List
     {
-        private Item item;
+        
          
     }
 }

@@ -8,5 +8,7 @@ namespace Money_Manager_Console.DataBase
 {
     interface IReader
     {
+        IEnumerable<Item> ReadAll();
+        int GetNextId();
     }
 }

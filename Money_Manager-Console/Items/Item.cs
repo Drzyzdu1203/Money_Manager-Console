@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Money_Manager_Console.Items
 {
-    class Item
+    abstract class Item
     {
-        public int Id;
-        public string Name;
-        public decimal Amount;
-        public DateTime Date;
+        public int Id { get; protected set; }
+        public string Name { get; protected set; }
+        public decimal Amount { get; protected set; }
+        public DateTime Date { get; protected set; }
     }
 }
