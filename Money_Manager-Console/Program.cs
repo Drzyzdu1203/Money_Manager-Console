@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Money_Manager_Console.DataBase;
+using Money_Manager_Console.Items;
+using Money_Manager_Console.Statistics; 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,8 +11,11 @@ namespace Money_Manager_Console
 {
     class Program
     {
+        
+
         static void Main(string[] args)
         {
+           
             string selected;
             do
             {
