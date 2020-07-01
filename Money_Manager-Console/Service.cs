@@ -1,4 +1,6 @@
-using System;
+﻿using System;
+using Money_Manager_Console.Items;
+using Money_Manager_Console.DataBase;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,7 +25,7 @@ namespace Money_Manager_Console
 
             Income income = new Income(id, amount, name, date);
 
-            writer1.Wriite(income);
+            writer1.Write(income);
         }
         public void AddOutcome(decimal amount, string name, DateTime date)
         {
