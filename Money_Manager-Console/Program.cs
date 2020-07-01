@@ -11,11 +11,12 @@ namespace Money_Manager_Console
 {
     class Program
     {
-        
 
+        static File file;
         static void Main(string[] args)
         {
-           
+            file = new File();
+
             string selected;
             do
             {
@@ -75,17 +76,62 @@ namespace Money_Manager_Console
         {
             Console.Clear();
         }
-        static void AddIncome()
+        private static void AddIncome()
         {
             Console.Clear();
+
+            Console.WriteLine("Nowy dochód");
+
+            Console.WriteLine("Nazwa: ");
+            string name = Console.ReadLine();
+
+            Console.WriteLine("Kwota: ");
+            string value = Console.ReadLine();
+            decimal amount = decimal.Parse(value);
+
+            Console.WriteLine("Data: ");
+            value = Console.ReadLine();
+            DateTime date = DateTime.Parse(value);
+
+            Service service = new Service(file, file);
+
+            service.AddIncome(amount, name, date);
         }
-        static void AddOutcome()
+        private static void AddOutcome()
         {
             Console.Clear();
+
+            Console.WriteLine("Nowy dochód");
+
+            Console.WriteLine("Nazwa: ");
+            string name = Console.ReadLine();
+
+            Console.WriteLine("Kwota: ");
+            string value = Console.ReadLine();
+            decimal amount = decimal.Parse(value);
+
+            Console.WriteLine("Data: ");
+            value = Console.ReadLine();
+            DateTime date = DateTime.Parse(value);
+
+            Service service = new Service(file, file);
+
+            service.AddOutcome(amount, name, date);
+
         }
         static void RemoveItem()
         {
             Console.Clear();
+
+            Console.WriteLine("Podaj ID do usunięcia: ");
+
+            string value = Console.ReadLine();
+
+            int id = int.Parse(value);
+
+            Service service = new Service(file, file);
+
+            service.RemoveById(id);        
         }
 
 
