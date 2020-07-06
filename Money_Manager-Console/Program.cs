@@ -70,6 +70,13 @@ namespace Money_Manager_Console
         static void ShowList()
         {
             Console.Clear();
+
+            List list = new List(file);
+
+            Console.WriteLine("Wszystkie pozycje:");
+            list.DisplayList();
+
+            Console.ReadKey();
             
         }
         static void ShowRaport()
