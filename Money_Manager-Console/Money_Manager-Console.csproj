@@ -48,6 +48,7 @@
     <Compile Include="DataBase\IWriter.cs" />
     <Compile Include="Items\Income.cs" />
     <Compile Include="Items\Item.cs" />
+    <Compile Include="Service.cs" />
     <Compile Include="Statistics\List.cs" />
     <Compile Include="Items\Outcome.cs" />
     <Compile Include="Program.cs" />
