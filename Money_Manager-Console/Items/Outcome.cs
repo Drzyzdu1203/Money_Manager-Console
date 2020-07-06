@@ -14,6 +14,7 @@ namespace Money_Manager_Console.Items
             Amount = amount;
             Name = name;
             Date = date;
+            Type = ItemType.Outcome;
         }
     }
 }

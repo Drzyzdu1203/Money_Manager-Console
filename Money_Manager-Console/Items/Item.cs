@@ -12,5 +12,7 @@ namespace Money_Manager_Console.Items
         public string Name { get; protected set; }
         public decimal Amount { get; protected set; }
         public DateTime Date { get; protected set; }
+        public ItemType Type { get; protected set; }
+        
     }
 }

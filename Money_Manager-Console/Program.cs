@@ -20,9 +20,8 @@ namespace Money_Manager_Console
             string selected;
             do
             {
-                selected = Console.ReadLine();
                 DisplayMenu();
-                
+                selected = Console.ReadLine();             
                 RunSelected(selected);
             }
             while (selected !="6");
@@ -79,10 +78,15 @@ namespace Money_Manager_Console
             Console.ReadKey();
             
         }
+
+       
+
         static void ShowRaport()
         {
             Console.Clear();
         }
+
+
         private static void AddIncome()
         {
             Console.Clear();
@@ -108,7 +112,7 @@ namespace Money_Manager_Console
         {
             Console.Clear();
 
-            Console.WriteLine("Nowy dochód");
+            Console.WriteLine("Nowy wydatek");
 
             Console.WriteLine("Nazwa: ");
             string name = Console.ReadLine();

@@ -29,7 +29,19 @@ namespace Money_Manager_Console.Statistics
 
         private void DisplayLine(Item item)
         {
-            Console.WriteLine("{0} {1} {2}zł {3}", item.Id, item.Name, item.Amount, item.Date);
+            string type = "";
+
+            switch (item.Type)
+            {
+                case ItemType.Income:
+                    type = "DOCHÓD";
+                    break;
+                case ItemType.Outcome:
+                    type = "WYDATEK";
+                    break;
+            }
+
+            Console.WriteLine("{0} {1} {2} {3}zł {4}", item.Id, type,  item.Name, item.Amount, item.Date);
         }
     }
 }
