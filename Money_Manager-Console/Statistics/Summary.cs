@@ -19,18 +19,35 @@ namespace Money_Manager_Console.Statistics
 
         public void DisplayRaport(int year, int month)
         {
+            IEnumerable<Item> list = GetItems(year, month);
+
+            decimal incomes = SumaIncomes(list);
+            decimal outcomes = SumaOutcomes(list);
+
+            decimal balance = Balance(incomes, outcomes);
+
+            Console.WriteLine("Podsumowanie {0}/{1}", month, year);
+            Console.WriteLine("Suma dochodów: {0}zł", incomes);
+            Console.WriteLine("Suma wydatków: {0}zł", outcomes);
+            Console.WriteLine("______________________");
+            Console.WriteLine("Bilans: {0}zł", balance);
+        }
+
+        private IEnumerable<Item> GetItems(int year, int month)
+        {
             IEnumerable<Item> list = reader.ReadAll();
 
             List<Item> reportList = new List<Item>();
 
-            foreach(Item item in list)
+            foreach (Item item in list)
+            {
                 if (item.Date.Year == year && item.Date.Month == month)
                 {
                     reportList.Add(item);
                 }
+            }
+            return reportList;
         }
-
-
 
         private decimal SumaIncomes(IEnumerable<Item> list)
         {
