@@ -7,7 +7,7 @@ using Money_Manager_Console.Items;
 using Money_Manager_Console.Statistics;
 using Money_Manager_Console.DataBase;
 
-namespace Money_Manager_Console.DataBase
+namespace Money_Manager_Console.DataBase.Files
 {
     class File : IReader, IWriter
     {

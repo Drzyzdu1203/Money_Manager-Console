@@ -1,4 +1,5 @@
 ﻿using Money_Manager_Console.DataBase;
+using Money_Manager_Console.DataBase.Files;
 using Money_Manager_Console.Items;
 using Money_Manager_Console.Statistics; 
 using System;
@@ -13,9 +14,12 @@ namespace Money_Manager_Console
     {
 
         static File file;
+        static IWriter writer;
+
         static void Main(string[] args)
         {
             file = new File();
+            writer = new Writer("arkusz.txt");
 
             string selected;
             do
@@ -25,7 +29,7 @@ namespace Money_Manager_Console
                 RunSelected(selected);
             }
             while (selected !="6");
-        
+         
         }
         private static void DisplayMenu()
         {
@@ -112,7 +116,7 @@ namespace Money_Manager_Console
             value = Console.ReadLine();
             DateTime date = DateTime.Parse(value);
 
-            Service service = new Service(file, file);
+            Service service = new Service(file, writer);
 
             service.AddIncome(amount, name, date);
         }
@@ -133,7 +137,7 @@ namespace Money_Manager_Console
             value = Console.ReadLine();
             DateTime date = DateTime.Parse(value);
 
-            Service service = new Service(file, file);
+            Service service = new Service(file, writer);
 
             service.AddOutcome(amount, name, date);
 
@@ -148,7 +152,7 @@ namespace Money_Manager_Console
 
             int id = int.Parse(value);
 
-            Service service = new Service(file, file);
+            Service service = new Service(file, writer);
 
             service.RemoveById(id);        
         }
