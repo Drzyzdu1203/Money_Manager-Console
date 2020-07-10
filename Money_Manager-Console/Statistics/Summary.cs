@@ -26,10 +26,10 @@ namespace Money_Manager_Console.Statistics
 
             decimal balance = Balance(incomes, outcomes);
 
-            Console.WriteLine("Podsumowanie {0}/{1}", month, year);
+            Console.WriteLine("Podsumowanie {0}/{1}\n", month, year);
             Console.WriteLine("Suma dochodów: {0}zł", incomes);
             Console.WriteLine("Suma wydatków: {0}zł", outcomes);
-            Console.WriteLine("______________________");
+            Console.WriteLine("____________________");
             Console.WriteLine("Bilans: {0}zł", balance);
         }
 

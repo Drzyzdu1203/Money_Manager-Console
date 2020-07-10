@@ -66,7 +66,7 @@ namespace Money_Manager_Console
                     break;
             }
         }
-        static void ShowList()
+        private static void ShowList()
         {
             Console.Clear();
 
@@ -81,9 +81,17 @@ namespace Money_Manager_Console
 
        
 
-        static void ShowRaport()
+        private static void ShowRaport()
         {
             Console.Clear();
+
+            int year = DateTime.Now.Year;
+            int month = DateTime.Now.Month;
+
+            Summary raport = new Summary(file);
+            raport.DisplayRaport(year, month);
+
+            Console.ReadKey();
         }
 
 
