@@ -13,13 +13,13 @@ namespace Money_Manager_Console
     class Program
     {
 
-        static File file;
-        static IWriter writer;
+        static IReader reader1;
+        static IWriter writer1;
 
         static void Main(string[] args)
         {
-            file = new File();
-            writer = new Writer("arkusz.txt");
+            reader1 = new Reader("arkusz.txt");
+            writer1 = new Writer("arkusz.txt");
 
             string selected;
             do
@@ -40,7 +40,7 @@ namespace Money_Manager_Console
             Console.WriteLine("4 - Dodaj wydatek");
             Console.WriteLine("5 - Usuń pozycje");
             Console.WriteLine("6 - Zakończ");
-            Console.WriteLine("\nWybrana opcja:");
+            Console.WriteLine("Wybrana opcja:");
         }
 
         private static void RunSelected(string selected)
@@ -74,7 +74,7 @@ namespace Money_Manager_Console
         {
             Console.Clear();
 
-            List list = new List(file);
+            List list = new List(reader1);
 
             Console.WriteLine("Wszystkie pozycje:");
             list.DisplayList();
@@ -92,12 +92,34 @@ namespace Money_Manager_Console
             int year = DateTime.Now.Year;
             int month = DateTime.Now.Month;
 
-            Summary raport = new Summary(file);
+            Summary raport = new Summary(reader1);
             raport.DisplayRaport(year, month);
 
             Console.ReadKey();
         }
 
+        private static void AddOutcome()
+        {
+            Console.Clear();
+
+            Console.WriteLine("Nowy wydatek");
+
+            Console.WriteLine("Nazwa: ");
+            string name = Console.ReadLine();
+
+            Console.WriteLine("Kwota: ");
+            string value = Console.ReadLine();
+            decimal amount = decimal.Parse(value);
+
+            Console.WriteLine("Data: ");
+            value = Console.ReadLine();
+            DateTime date = DateTime.Parse(value);
+
+            Service service = new Service(reader1, writer1);
+
+            service.AddOutcome(amount, name, date);
+
+        }
 
         private static void AddIncome()
         {
@@ -116,32 +138,11 @@ namespace Money_Manager_Console
             value = Console.ReadLine();
             DateTime date = DateTime.Parse(value);
 
-            Service service = new Service(file, writer);
+            Service service = new Service(reader1, writer1);
 
             service.AddIncome(amount, name, date);
         }
-        private static void AddOutcome()
-        {
-            Console.Clear();
-
-            Console.WriteLine("Nowy wydatek");
-
-            Console.WriteLine("Nazwa: ");
-            string name = Console.ReadLine();
-
-            Console.WriteLine("Kwota: ");
-            string value = Console.ReadLine();
-            decimal amount = decimal.Parse(value);
-
-            Console.WriteLine("Data: ");
-            value = Console.ReadLine();
-            DateTime date = DateTime.Parse(value);
-
-            Service service = new Service(file, writer);
-
-            service.AddOutcome(amount, name, date);
-
-        }
+        
         static void RemoveItem()
         {
             Console.Clear();
@@ -150,13 +151,12 @@ namespace Money_Manager_Console
 
             string value = Console.ReadLine();
 
+            
             int id = int.Parse(value);
 
-            Service service = new Service(file, writer);
+            Service service = new Service(reader1, writer1);
 
             service.RemoveById(id);        
         }
-
-
     }
 }

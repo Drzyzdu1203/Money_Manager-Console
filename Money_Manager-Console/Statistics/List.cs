@@ -10,16 +10,16 @@ namespace Money_Manager_Console.Statistics
 {
     class List
     {
-        private IReader reader1;
+        private IReader reader;
          
-        public List(IReader reader)
+        public List(IReader reader1)
         {
-            reader1 = reader;
+            reader = reader1;
         }
 
         public void DisplayList()
         {
-            IEnumerable<Item> list = reader1.ReadAll();
+            IEnumerable<Item> list = reader.ReadAll();
 
             foreach(Item item in list)
             {
@@ -41,7 +41,7 @@ namespace Money_Manager_Console.Statistics
                     break;
             }
 
-            Console.WriteLine("{0} {1} {2} {3}zł {4}", item.Id, type,  item.Name, item.Amount, item.Date);
+            Console.WriteLine("{0} {1} {2} {3}zł {4}", item.Id, item.Name, type, item.Amount, item.Date);
         }
     }
 }

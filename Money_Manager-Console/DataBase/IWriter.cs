@@ -11,6 +11,5 @@ namespace Money_Manager_Console.DataBase
     {
         void Write(Item item);
         void Remove(int id);
-
     }
 }

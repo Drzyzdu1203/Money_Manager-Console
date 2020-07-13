@@ -14,7 +14,7 @@ namespace Money_Manager_Console.DataBase
 
         public Writer(string filename1)
         {
-            filename1 = filename;
+            filename = filename1;
         }
 
         public void Remove(int id)
@@ -41,11 +41,11 @@ namespace Money_Manager_Console.DataBase
         }
         private string ItemToText(Item item)
         {
-            string type = "Zysk";
+            string type = "I";
 
             if(item.Type == ItemType.Outcome)
             {
-                type = "Wydatek";
+                type = "O";
             }
 
             string line = string.Format("{0}; {1}; {2}, {3}; {4}",
