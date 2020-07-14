@@ -34,10 +34,10 @@ namespace Money_Manager_Console.Statistics
             switch (item.Type)
             {
                 case ItemType.Income:
-                    type = "DOCHÓD";
+                    type = "| Dochód |";
                     break;
                 case ItemType.Outcome:
-                    type = "WYDATEK";
+                    type = "| Wydatek |";
                     break;
             }
 

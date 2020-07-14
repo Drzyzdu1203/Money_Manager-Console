@@ -10,34 +10,34 @@ namespace Money_Manager_Console
 {
     class Service
     {
-        private IReader reader1;
-        private IWriter writer1;
+        private IReader _reader;
+        private IWriter _writer;
 
         public Service(IReader reader, IWriter writer)
         {
-            reader1 = reader;
-            writer1 = writer;
+            _reader = reader;
+            _writer = writer;
         }
 
         public void AddIncome(decimal amount, string name, DateTime date)
         {
-            int id = reader1.GetNextId();
+            int id = _reader.GetNextId();
 
             Income income = new Income(id, amount, name, date);
 
-            writer1.Write(income);
+            _writer.Write(income);
         }
         public void AddOutcome(decimal amount, string name, DateTime date)
         {
-            int id = reader1.GetNextId();
+            int id = _reader.GetNextId();
 
             Outcome income = new Outcome(id, amount, name, date);
 
-            writer1.Write(income);
+            _writer.Write(income);
         }
         public void RemoveById(int id)
         {
-            writer1.Remove(id);
+            _writer.Remove(id);
         }
     }
 }

@@ -32,8 +32,6 @@ namespace Money_Manager_Console.DataBase
             return items.ElementAt(lastIndex).Id + 1;
         }
 
-       
-
         public IEnumerable<Item> ReadAll()
         {
             
@@ -56,15 +54,15 @@ namespace Money_Manager_Console.DataBase
         }
         private Item TextToItem(string line)
         {
-            string[] table = line.Split(';');
+            string[] columns = line.Split(';');
 
-            int id = int.Parse(table[0]);
-            string name = table[1];
-            string type = table[2];
-            decimal amount = decimal.Parse(table[3]);
-            DateTime date = DateTime.ParseExact(table[4], "dd-MM-yyyy", null);
+            int id = int.Parse(columns[0]);
+            string name = columns[1];
+            string type = columns[2];
+            decimal amount = decimal.Parse(columns[3]);
+            DateTime date = DateTime.ParseExact(columns[4], "dd-MM-yyyy", null);
 
-            if (type == "I")
+            if (type == "| Dochód |")
             {
                 return new Income(id, amount, name, date);
             }

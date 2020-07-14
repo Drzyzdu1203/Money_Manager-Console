@@ -10,16 +10,16 @@ namespace Money_Manager_Console.DataBase
 {
     class Writer : IWriter
     {
-        private string filename;
+        private string _filename;
 
-        public Writer(string filename1)
+        public Writer(string filename)
         {
-            filename = filename1;
+            _filename = filename;
         }
 
         public void Remove(int id)
         {
-            IEnumerable<string> lines = File.ReadAllLines(filename);
+            IEnumerable<string> lines = File.ReadAllLines(_filename);
 
             IList<string> toSave = new List<string>();
 
@@ -31,24 +31,24 @@ namespace Money_Manager_Console.DataBase
                 }
             }
 
-            File.WriteAllLines(filename, toSave);
+            File.WriteAllLines(_filename, toSave);
         }
         public void Write(Item item)
         {
             string line = ItemToText(item);
 
-            File.WriteAllText(filename, line);
+            File.AppendAllText(_filename, line);
         }
         private string ItemToText(Item item)
         {
-            string type = "I";
+            string type = "| Dochód |";
 
             if(item.Type == ItemType.Outcome)
             {
-                type = "O";
+                type = "| Wydatek |";
             }
 
-            string line = string.Format("{0}; {1}; {2}, {3}; {4}",
+            string line = string.Format("{0};{1};{2};{3};{4}",
                 item.Id,
                 item.Name,
                 type,

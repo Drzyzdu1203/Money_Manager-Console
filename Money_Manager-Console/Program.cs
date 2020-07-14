@@ -12,14 +12,13 @@ namespace Money_Manager_Console
 {
     class Program
     {
-
-        static IReader reader1;
-        static IWriter writer1;
-
+        static IWriter _writer;
+        static IReader _reader;
+        
         static void Main(string[] args)
         {
-            reader1 = new Reader("arkusz.txt");
-            writer1 = new Writer("arkusz.txt");
+            _reader = new Reader("arkusz.txt");
+            _writer = new Writer("arkusz.txt");
 
             string selected;
             do
@@ -28,8 +27,7 @@ namespace Money_Manager_Console
                 selected = Console.ReadLine();             
                 RunSelected(selected);
             }
-            while (selected !="6");
-         
+            while (selected != "6");        
         }
         private static void DisplayMenu()
         {
@@ -50,21 +48,16 @@ namespace Money_Manager_Console
             {
                 case "1":
                     ShowList();
-
                     break;
-
                 case "2":
                     ShowRaport();
                     break;
-
                 case "3":
                     AddIncome();
                     break;
-
                 case "4":
                     AddOutcome();
-                    break;
-                    
+                    break;                  
                 case "5":
                     RemoveItem();
                     break;
@@ -74,16 +67,13 @@ namespace Money_Manager_Console
         {
             Console.Clear();
 
-            List list = new List(reader1);
+            List list = new List(_reader);
 
             Console.WriteLine("Wszystkie pozycje:");
             list.DisplayList();
 
-            Console.ReadKey();
-            
-        }
-
-       
+            Console.ReadKey();       
+        } 
 
         private static void ShowRaport()
         {
@@ -92,7 +82,7 @@ namespace Money_Manager_Console
             int year = DateTime.Now.Year;
             int month = DateTime.Now.Month;
 
-            Summary raport = new Summary(reader1);
+            Summary raport = new Summary(_reader);
             raport.DisplayRaport(year, month);
 
             Console.ReadKey();
@@ -115,7 +105,7 @@ namespace Money_Manager_Console
             value = Console.ReadLine();
             DateTime date = DateTime.Parse(value);
 
-            Service service = new Service(reader1, writer1);
+            Service service = new Service(_reader, _writer);
 
             service.AddOutcome(amount, name, date);
 
@@ -138,7 +128,7 @@ namespace Money_Manager_Console
             value = Console.ReadLine();
             DateTime date = DateTime.Parse(value);
 
-            Service service = new Service(reader1, writer1);
+            Service service = new Service(_reader, _writer);
 
             service.AddIncome(amount, name, date);
         }
@@ -154,7 +144,7 @@ namespace Money_Manager_Console
             
             int id = int.Parse(value);
 
-            Service service = new Service(reader1, writer1);
+            Service service = new Service(_reader, _writer);
 
             service.RemoveById(id);        
         }
